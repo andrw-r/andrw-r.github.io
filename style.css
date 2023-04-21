@@ -1,3 +1,30 @@
+@media only screen and (max-width: 600px) {
+  .btn {
+    margin: 0 auto;
+  }
+  .box {
+    font-size: 4vw;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .btn {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 900px) {
+  .btn {
+    font-size: 25px;
+  }
+}
+
+@media only screen and (min-width: 901px) {
+  .btn {
+    font-size: 30px;
+  }
+}
+
 body {
   background-color: black;
   color: white;
@@ -23,6 +50,7 @@ body {
   flex-direction: column;
   justify-content: center;
   margin: 10vh 0vh;
+  font-size: 2.5vw;
 }
 
 h1 {
@@ -39,7 +67,7 @@ h1 {
   text-align: center;
   text-decoration: none;
   font-family: 'Press Start 2P', cursive;
-  font-size: 25px;
+  font-size: 0.1em;
   margin: auto auto;
   transition: all 0.15s ease-in-out;
   max-width: 34vh;
@@ -70,9 +98,11 @@ h1 {
   flex-direction: column;
   justify-content: center;
 }
+
 .box, .btn {
   border: 1px solid white;
 }
+
 h1 {
   white-space: nowrap;
   overflow: hidden;
