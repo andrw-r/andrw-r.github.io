@@ -1,0 +1,81 @@
+body {
+  background-color: black;
+  color: white;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 30px;
+  border: 1px solid white;
+  max-width: 68vh;
+  max-height: 51vh;
+  margin: 10vh auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.box {
+  border: 1px solid white;
+  max-width: 68vh;
+  max-height: 51vh;
+  height: 100vh;
+  padding: 0vh 0vh;
+  display: center;
+  flex-direction: column;
+  justify-content: center;
+  margin: 10vh 0vh;
+}
+
+h1 {
+  text-align: center;
+  font-size: 4.6vh;
+  margin-top: 8vh
+}
+
+.btn {
+  display: block;
+  background-color: white;
+  color: black;
+  border: 2px solid white;
+  text-align: center;
+  text-decoration: none;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 25px;
+  margin: auto auto;
+  transition: all 0.15s ease-in-out;
+  max-width: 34vh;
+}
+
+.btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+#bio-content {
+  line-height: 135%;
+  padding-left: 1vh;
+  padding-right: 1vh;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 11px;
+  display: none;
+  max-width: 68vh;
+  max-height: 51vh;
+  margin: auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.box, .btn {
+  border: 1px solid white;
+}
+h1 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
