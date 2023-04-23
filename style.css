@@ -17,6 +17,7 @@ body {
   margin-bottom: 10vh;
   margin-left: auto;
   margin-right: auto;
+
 }
 
 body.index-body {
@@ -26,7 +27,7 @@ body.index-body {
   display:flex;
   flex-direction: column;
   justify-content: center;
-  overflow: auto;
+  overflow: auto
 }
 
 h1 {
@@ -39,6 +40,7 @@ h1 {
   padding-left: 10vw;
   padding-right: 10vw;
   inline-size: auto;
+  
 }
 
 .btn {
