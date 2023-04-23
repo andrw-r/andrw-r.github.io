@@ -25,7 +25,7 @@ body.index-body {
   display:flex;
   flex-direction: column;
   justify-content: center;
-  overflow: hidden;
+  overflow: scroll;
 }
 
 h1 {
