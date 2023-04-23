@@ -1,76 +1,65 @@
-@media only screen and (max-width: 600px) {
-  .btn {
-    margin: 0 auto;
-  }
-  .box {
-    font-size: 4vw;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .btn {
-    font-size: 20px;
-  }
-}
-
-@media only screen and (min-width: 601px) and (max-width: 900px) {
-  .btn {
-    font-size: 25px;
-  }
-}
-
-@media only screen and (min-width: 901px) {
-  .btn {
-    font-size: 30px;
-  }
-}
 
 body {
   background-color: black;
   color: white;
   font-family: 'Press Start 2P', cursive;
-  font-size: 30px;
+  font-size: 1rem; 
+  line-height: 120%;
   border: 1px solid white;
-  max-width: 68vh;
-  max-height: 51vh;
-  margin: 10vh auto;
-  height: 100vh;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  width: 75%;
+  height: 30%;
+  margin-top: 10vh;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.box {
-  border: 1px solid white;
-  max-width: 68vh;
-  max-height: 51vh;
-  height: 100vh;
-  padding: 0vh 0vh;
-  display: center;
+body.index-body {
+}
+
+.container {
+  display:flex;
   flex-direction: column;
   justify-content: center;
-  margin: 10vh 0vh;
-  font-size: 2.5vw;
+  overflow: hidden;
 }
 
 h1 {
+  justify-content: center;
   text-align: center;
-  font-size: 4.6vh;
-  margin-top: 8vh
+  font-size: 2.5em;
+  overflow: visible;
+  white-space: pre-wrap;
+  line-height: 110%;
+  padding-left: 10vw;
+  padding-right: 10vw;
+  inline-size: auto;
 }
 
 .btn {
   display: block;
+  padding-left: center;
+  padding-right: center;
+  padding-top: 0.75vh; /* Updated padding value */
+  padding-bottom: 0.75vh; /* Updated padding value */
   background-color: white;
   color: black;
   border: 2px solid white;
   text-align: center;
   text-decoration: none;
   font-family: 'Press Start 2P', cursive;
-  font-size: 0.1em;
-  margin: auto auto;
+  font-size: 0.975vh;
+  margin-bottom: 1em;
+  margin-left: auto;
+  margin-right: auto;
   transition: all 0.15s ease-in-out;
-  max-width: 34vh;
+  width: 50%;
+  overflow: visible;
+  text-overflow: ellipsis;
 }
 
 .btn:hover {
@@ -81,31 +70,4 @@ h1 {
 .btn:active {
   transform: translateY(0);
   box-shadow: none;
-}
-
-#bio-content {
-  line-height: 135%;
-  padding-left: 1vh;
-  padding-right: 1vh;
-  font-family: 'Press Start 2P', cursive;
-  font-size: 11px;
-  display: none;
-  max-width: 68vh;
-  max-height: 51vh;
-  margin: auto;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.box, .btn {
-  border: 1px solid white;
-}
-
-h1 {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 100%;
 }
