@@ -6,18 +6,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="box">
-        <h1>Andrew Ross</h1>
-        <div id="bio-content" style="text-align: center;"></div>  
-        <button id="bio-btn" onclick="goToIndex()" class="btn">Back</button>
-    </div>
-    <script src="../content.js"></script>
-    <script>
-        console.log('Loaded bio-content.html');
-        window.onload = function() {
-            loadBioContent();
-        };
-    </script>
+    <div class="wrapper">
+        <div class="box">
+            <h1>Andrew Ross</h1>
+            <div id="bio-content" style="text-align: center;"></div>  
+            <button id="bio-btn" onclick="goToIndex()" class="btn">Back</button>
+        </div>
+        <script src="../content.js"></script>
+        <script>
+            console.log('Loaded bio-content.html');
+            window.onload = function() {
+                loadBioContent();
+            };
+        </script>
+      </div>
+      
+    
 
 </body>
 </html>
