@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blog</title>
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <div class="box">
+        <h1>Andrew Ross</h1>
+        
+        <h2 id="blog-date"></h2>
+        
+        <div id="blog-content" style="margin-bottom: 2%;text-align: center; font-size: smaller;"></div>
+        
+        <button style="margin:0% 14%;text-align: center;max-width: 29%;display: inline-block;" id="nxt-blog" onclick="goToNextBlog();" class="btn">Next Blog</button>
+        <button style="text-align: center;max-width: 29%;display: inline-block;" id="back-btn" onclick="goToIndex();" class="btn">Back</button>
+        
+        <div id="blog-index">
+            <h2>Blog Posts</h2>
+            <ul id="blog-post-list"></ul>
+          </div>
+          
+          <script>
+            const blogPostList = document.getElementById('blog-index');
+            
+            // fetch the blog posts from the JSON file
+            fetch('blog-posts.json')
+              .then(response => response.json())
+              .then(data => {
+                const blogPosts = data.blogPosts;
+
+                // loop through each blog post and add it to the list
+                for (let i = 0; i < blogPosts.length; i++) {
+                  const blogPost = blogPosts[i];
+              
+                  const li = document.createElement('li');
+                  const a = document.createElement('a');
+                  const title = document.createTextNode(blogPost.title);
+                  a.appendChild(title);
+                  a.href = "#";
+                  a.onclick = function() {
+                    goToBlogPost(i, blogPosts);
+                    return false;
+                  }
+                  li.appendChild(a);
+                  const dateSpan = document.createElement('span');
+                  const date = document.createTextNode(blogPost.date);
+                  dateSpan.appendChild(date);
+                  dateSpan.className = 'blog-date';
+                  li.appendChild(dateSpan);
+              
+                  blogPostList.appendChild(li);
+                }
+              })
+              .catch(error => {
+                console.error('Error fetching blog posts:', error);
+              });
+          </script>
+          
+          
+    </div>
+    <script src="../content.js"></script>
+    <script>
+        console.log('Loaded blog-content.html');
+        window.onload = function() {
+            loadBlogContent();
+        };
+    </script>
+</body>
+</html>
