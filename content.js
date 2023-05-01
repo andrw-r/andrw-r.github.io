@@ -1,38 +1,29 @@
 function loadBioContent() {
-    fetch('/bio/bio-content.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('bio-content').innerHTML = data;
-      })
-      .catch(error => {
-        console.error('Error loading bio index.html:', error);
-      });
-  
-  }
-  
-  
-  function loadContactContent() {
-    fetch('/contact/contact-content.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('contact-content').innerHTML = data;
-      })
-      .catch(error => {
-        console.error('Error loading contact index.html:', error);
-      });
-  
-  }
-  
+  fetch('/bio/bio-content.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('bio-content').innerHTML = data;
+    })
+    .catch(error => {
+      console.error('Error loading bio index.html:', error);
+    });
+
+}
   
   // Load the content of the index page
   function loadIndexContent() {
+    console.log("Loading index-content.html");
     const xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
+      console.log("XMLHttpRequest readyState changed");
       if (this.readyState == 4 && this.status == 200) {
+        console.log("XMLHttpRequest status is 200, updating index-content");
         document.getElementById("index-content").innerHTML = this.responseText;
       }
     };
+    console.log("Opening XMLHttpRequest");
     xhr.open("GET", "index-content.html", true);
+    console.log("Sending XMLHttpRequest");
     xhr.send();
   }
   
@@ -42,20 +33,44 @@ function loadBioContent() {
     loadBioContent();
     window.location.href = "/bio";
   }
-  
+  // Navigate to the blog page
+  function goToBlog() {
+    window.location.href = "/blog";
+  }
+
   
   // Navigate to the contact page
   function goToContact() {
-    loadContactContent();
-    window.location.href = "contact.html";
+    window.location.href = "/contact";
+  }
+  // Navigate to the portfolio page
+  function goToPortfolio() {
+    window.location.href = "/portfolio";
   }
   
-  
+
   // Navigate to the index page
   function goToIndex() {
     loadIndexContent();
     window.location.href = "../";
   }
+  // Navigate to an email in a new tab
+  function goToEmail() {
+    window.open('mailto:ajross2001@gmail.com');
+  }
+  // Navigate to a GitHub profile in a new tab
+  function goToGitHub() {
+    window.open('https://github.com/andrw-r');
+  }
+  // Navigate to a LinkedIn profile in a new tab
+  function goToLinkedIn() {
+    window.open('https://www.linkedin.com/in/andrwross/');
+  }
+  // Navigate to a Devpost profile in a new tab
+  function goToDevpost() {
+    window.open('https://devpost.com/andrw');
+  }
+
   
   
   function loadBlogContent() {
@@ -72,15 +87,6 @@ function loadBioContent() {
         console.error('Error loading blog index.html:', error);
       });
   }
-  
-  
-  
-  // Navigate to the blog page
-  function goToBlog() {
-    loadBlogContent();
-    window.location.href = "/blog";
-  }
-  
   
   function goToNextBlog(blogPosts) {
     const currentIndex = blogPosts.findIndex(post => post.content === document.getElementById('blog-content').innerHTML);
@@ -106,13 +112,3 @@ function loadBioContent() {
       document.getElementById('prev-blog').style.display = index > 0 ? "inline-block" : "none";
     }
   }
-  // Select the toggle mode button and the body element
-//const toggleModeBtn = document.querySelector('#toggle-mode-btn');
-//const body = document.body;
-
-// Listen for clicks on the toggle mode button
-//toggleModeBtn.addEventListener('click', () => {
-  // Toggle the light-mode and dark-mode classes on the body element
-  //body.classList.toggle('light-mode');
-  //body.classList.toggle('dark-mode');
-//});
