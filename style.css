@@ -43,7 +43,7 @@ body {
   border: 1px solid black;
 
 }
-/* Add a wrapper div to contain your site content */
+
 .wrapper {
   position: absolute;
   top: 0;
@@ -124,6 +124,10 @@ body {
     bottom: 0;
     position: absolute;
     top: 10%;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2
 
 
   }
@@ -142,21 +146,22 @@ body {
     color: white;
   }
   
-  .blog-date { /* Style the date of the blog post to the right side of the page */
+  .blog-date { /* Style date of blog post to right side of page */
     float: right;
     font-size: 0.75em;
   }
-  .blog-title { /* Style the title of the blog post to the left side of the page */
+  .blog-title { /* Style title of blog post to left side of page */
     float: left;
     font-size: 1.25em;
   }
-  .blog-content { /* Style the content of the blog post to the center of the page */
+  .blog-content { /* Style content of blog post to center of page */
     text-align: center;
     font-size: 1em;
   }
   .btn {
     height: 2.5vh;
     padding-bottom: 2.5vh;
+
   }
   
   .btn-light {
@@ -174,7 +179,6 @@ body {
     border: 1px solid white;
     border-radius: 0.25em;
     box-shadow: 0px 0px 5px 0px white;
-
     font-size: 0.9em;
     font-family: 'Press Start 2P', cursive !important;
     text-decoration: none;
@@ -182,7 +186,6 @@ body {
     cursor: pointer;
     z-index: 1;
     width: 50%;
-     /* Add a transition effect (when the user moves the mouse over the button, hover 5px up): */
     transition: 0.1s;
      
     }
