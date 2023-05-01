@@ -1,72 +1,92 @@
-<!DOCTYPE html>
-<html>
-<head>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Blog</title>
     <link rel="stylesheet" href="../style.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-</head>
-<body>
-    
-    <div class="box">
-        <h1>Andrew Ross</h1>
-        
-        <h2 id="blog-date"></h2>
-        
-        <div id="blog-content" style="margin-bottom: 2%;text-align: center; font-size: smaller;"></div>
-        
-        <button style="margin:0% 14%;text-align: center;max-width: 29%;display: inline-block;" id="nxt-blog" onclick="goToNextBlog();" class="btn">Next Blog</button>
-        <button style="text-align: center;max-width: 29%;display: inline-block;" id="back-btn" onclick="goToIndex();" class="btn">Back</button>
-        
-        <div id="blog-index">
-            <h2>Blog Posts</h2>
+  </head>
+  <body>
+    <div class="container">
+      <div class="wrapper">
+        <h1 class="fs-1" style="margin-bottom:2vh;text-align: center;margin-bottom: 5%;">Andrew Ross</h1>
+        <h2 class="fs-3" style="margin-top: 20%;" id="blog-date"></h2>
+        <div style="text-align:center">
+          <div class="wrapper d-flex justify-content-center" style="margin-top: 13vh;">
+            <button id="nxt-blog" onclick="goToNextBlog()" class="btn btn-light">Next</button>
+            <button onclick="goToIndex()" class="btn btn-light">Back</button>
+          </div>
+            <h2 style="margin-top: 25vh;">Blog Posts</h2>
+            <div id="blog-index" style="margin: 0em 2em 0em 0em;"></div>
             <ul id="blog-post-list"></ul>
           </div>
-          
-          <script>
-            const blogPostList = document.getElementById('blog-index');
-            
-            // fetch the blog posts from the JSON file
-            fetch('blog-posts.json')
-              .then(response => response.json())
-              .then(data => {
-                const blogPosts = data.blogPosts;
+        </div>
+        <div id="blog-content" style="text-align: center;margin-top: 5%; color: white;"></div>
 
-                // loop through each blog post and add it to the list
-                for (let i = 0; i < blogPosts.length; i++) {
-                  const blogPost = blogPosts[i];
-              
-                  const li = document.createElement('li');
-                  const a = document.createElement('a');
-                  const title = document.createTextNode(blogPost.title);
-                  a.appendChild(title);
-                  a.href = "#";
-                  a.onclick = function() {
-                    goToBlogPost(i, blogPosts);
-                    return false;
-                  }
-                  li.appendChild(a);
-                  const dateSpan = document.createElement('span');
-                  const date = document.createTextNode(blogPost.date);
-                  dateSpan.appendChild(date);
-                  dateSpan.className = 'blog-date';
-                  li.appendChild(dateSpan);
-              
-                  blogPostList.appendChild(li);
-                }
-              })
-              .catch(error => {
-                console.error('Error fetching blog posts:', error);
-              });
-          </script>
-          
-          
+        
+      </div>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </div>
-    <script src="../content.js"></script>
-    <script>
-        console.log('Loaded blog-content.html');
-        window.onload = function() {
-            loadBlogContent();
-        };
-    </script>
-</body>
+    
+  <script src="../content.js"></script>
+  <script>
+      // Get reference to list of blogs
+      const blogPostList = document.getElementById('blog-index');
+      // Fetch  JSON data for blogs
+      fetch('blog-posts.json')
+        .then(response => response.json())
+        .then(data => {
+          // Get blogs from JSON data
+          const blogPosts = data.blogPosts;
+          // Loop through blogs
+          for (let i = 0; i < blogPosts.length; i++) {
+            const blogPost = blogPosts[i];
+            // Create list, link, text node, and append the title for each list item
+            const li = document.createElement('li'); 
+            const a = document.createElement('a');
+            const title = document.createTextNode(blogPost.title);
+            a.appendChild(title);
+            // Set the link's href attribute
+            a.href = "#";
+            // Set the link's onclick event handler
+            a.onclick = function() {
+              // Call the goToBlogPost function, passing the index of the blog post
+              goToBlogPost(i, blogPosts);
+              // Return false to prevent the browser from following the link
+              return false;
+            }
+            // Add the link to the list item
+            li.appendChild(a);
+            // Create a span element
+            const dateSpan = document.createElement('span');
+            // Create a text node for the date
+            const date = document.createTextNode(blogPost.date);
+            // Add the date text node to the span
+            dateSpan.appendChild(date);
+            // Add the class "blog-date" to the span
+            dateSpan.className = 'blog-date';
+            // Add the span to the list item
+            li.appendChild(dateSpan);
+            // Add the list item to the list
+            blogPostList.appendChild(li);
+          }
+        })
+        // error log to console
+        .catch(error => {
+          console.error('Error fetching blog posts:', error);
+        });
+  </script>
+  </div>
+  <script src="../content.js"></script>
+  <script>
+      console.log('Loaded blog-content.html');
+      window.onload = function() {
+          loadBlogContent();
+      };
+  </script>
+  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </body>
 </html>
