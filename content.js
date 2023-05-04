@@ -1,14 +1,13 @@
-function loadBioContent() {
-  fetch('/bio/bio-content.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('bio-content').innerHTML = data;
-    })
-    .catch(error => {
-      console.error('Error loading bio index.html:', error);
-    });
-
-}
+  function loadBioContent() {
+    fetch('/bio/bio-content.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('bio-content').innerHTML = data;
+      })
+      .catch(error => {
+        console.error('Error loading bio index.html:', error);
+      });
+  }
   
   // Load the content of the index page
   function loadIndexContent() {
@@ -70,6 +69,7 @@ function loadBioContent() {
   function goToDevpost() {
     window.open('https://devpost.com/andrw');
   }
+
 
   
   
